@@ -159,19 +159,24 @@ if (!function_exists('Composer\Json\json_decode')) {
 }
 PHP;
 
-if (!isset($argv[1])) {
-    echo <<<HELP
+$usage = <<<HELP
 Example Usage:
-    $ phar-patcher pathto/composer.phar
+    $ phar-patcher path/to/composer.phar
 HELP;
+
+if (!isset($argv[1])) {
+    echo $usage;
     exit(0);
 }
 
 if (!file_exists($argv[1])) {
-    fwrite(STDERR, "The file {$argv[1]} is not exists\n");
+    fwrite(fopen('php://stderr', 'w'), "\033[01;31mThe file \"{$argv[1]}\" is not exists. \033[0m\n");
+    echo $usage;
     exit(1);
 }
 
 $patcher = new PharPatcher($argv[1]);
 $patcher->injectScript($script);
 $patcher->save($argv[1]);
+
+echo "\e[42mPatched Successfully!!!\e[0m\n";
