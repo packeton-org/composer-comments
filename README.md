@@ -5,7 +5,7 @@ This tools patch phar file `composer.phar` for JSON comments support.
 ## Usage 
 
 ```
-$ curl https://gist.githubusercontent.com/../phar-patcher | php -- path/to/composer.phar
+$ curl https://raw.githubusercontent.com/packeton-org/composer-comments/main/phar-patcher | php -- path/to/composer.phar
 ```
 
 Or use local pre downloaded `phar-patcher` script.
