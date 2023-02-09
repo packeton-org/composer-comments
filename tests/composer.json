@@ -1,0 +1,32 @@
+{
+    "repositories": [
+        {"type": "composer", "url": "https://packeton.org/mirror/orocrm/"}
+       // {"packagist": false}
+    ],
+    "_comment": [
+        true,
+        false,
+        100//,
+    ],
+    "authors": [
+        {
+           /* "name": "Uladzimir Tsykun",*/
+            "email": "tsykun314@gmail.com",
+            "name": "Packeton"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Packeton\\": "src/"/*,
+            "Oro\\": "doctrine/"*/
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-redis": "*"//,
+//        "firebase/php-jwt": "^6.0"//,
+      //  "babdev/pagerfanta-bundle": "^3.7",
+//        "babdev/pagerfanta-bundle": "^2.0",
+//        "cebe/markdown": "^1.1"
+    }
+}

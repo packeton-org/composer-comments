@@ -1,0 +1,30 @@
+name: "Run integration test"
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  tests:
+    name: "CI"
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version:
+          - "8.1"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v2"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Run tests"
+        run: |
+          cd tests && bash run.sh

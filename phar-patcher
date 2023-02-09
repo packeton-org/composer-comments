@@ -148,7 +148,7 @@ if (!function_exists('Composer\Json\json_decode')) {
     function json_decode(\$json, \$associative = null, \$depth = 512, \$flags = 0)
     {
         if (null === (\$result = \json_decode(\$json, \$associative, \$depth, \$flags))) {
-            \$minify = \preg_replace('#(([},{\[\]]|false\b|true\b|null\b|\d\b|\w")//.*)|(\s//.*)|(^//.*)#', '$2', \$json);
+            \$minify = \preg_replace('#(([},{\[\]]|false\b|true\b|null\b|\d\b|[*\w]")//.*)|(\s//.*)|(^//.*)#', '$2', \$json);
             \$minify = \preg_replace('#\s*(?!<\")/\*[^*]+\*/(?!\")\s*#', '', \$minify);
 
             return \json_decode(\$minify, \$associative, \$depth, \$flags);
